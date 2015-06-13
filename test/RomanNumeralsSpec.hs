@@ -6,8 +6,9 @@ import RomanNumerals
 main :: IO ()
 main = hspec $ do
   describe "Prelude.head" $ do
-    it "converts 1 -> I" $ do
-      convertToRomanNumberals 1 `shouldBe` "I"
+    1 `convertsTo` "I"
+    2 `convertsTo` "II"
 
-    it "convers 2 -> II" $ do
-      convertToRomanNumberals 2 `shouldBe` "II"
+convertsTo number numeral =
+  it ("converts " ++ (show number) ++ " -> " ++ numeral) $ do
+    convertToRomanNumberals number `shouldBe` numeral
