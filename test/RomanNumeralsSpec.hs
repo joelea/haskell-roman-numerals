@@ -8,6 +8,7 @@ main = hspec $ do
   describe "Prelude.head" $ do
     1 `convertsTo` "I"
     2 `convertsTo` "II"
+    5 `convertsTo` "V"
 
 convertsTo number numeral =
   it ("converts " ++ (show number) ++ " -> " ++ numeral) $ do
