@@ -21,11 +21,7 @@ module RomanNumerals where
 
   convertToRomanNumberals :: Int -> Numeral
   convertToRomanNumberals 0 = ""
-  convertToRomanNumberals 1 = "I"
-  convertToRomanNumberals 5 = "V"
-  convertToRomanNumberals n
-    | n < 0 = error (show n)
-    | otherwise = nextNumeral ++ restOfTheNumerals
+  convertToRomanNumberals n = nextNumeral ++ restOfTheNumerals
     where
       nextNumeral = numeral nextRomanNum
       restOfTheNumerals = convertToRomanNumberals $ n - nextNumber
