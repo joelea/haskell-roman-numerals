@@ -8,6 +8,7 @@ module RomanNumerals where
 
   allNumerals = [
       RomanNumber 5 "V"
+    , RomanNumber 4 "IV"
     , RomanNumber 1 "I"]
 
   nextRomanNumber :: Int -> RomanNumber
@@ -22,8 +23,11 @@ module RomanNumerals where
   convertToRomanNumberals 0 = ""
   convertToRomanNumberals 1 = "I"
   convertToRomanNumberals 5 = "V"
-  convertToRomanNumberals n = nextNumeral ++ restOfTheNumerals
+  convertToRomanNumberals n
+    | n < 0 = error (show n)
+    | otherwise = nextNumeral ++ restOfTheNumerals
     where
-      nextNumeral = convertToRomanNumberals nextNumber
+      nextNumeral = numeral nextRomanNum
       restOfTheNumerals = convertToRomanNumberals $ n - nextNumber
-      nextNumber = number $ nextRomanNumber n
+      nextNumber = number nextRomanNum
+      nextRomanNum = nextRomanNumber n
