@@ -1,5 +1,5 @@
 module RomanNumerals where
   type Numeral = String
 
-  convertToRomanNumberals :: (Num a) => a -> Numeral
-  convertToRomanNumberals _ = "I"
+  convertToRomanNumberals :: Int -> Numeral
+  convertToRomanNumberals number = ['I' | i <- [1..number]]
