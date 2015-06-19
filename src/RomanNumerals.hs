@@ -5,6 +5,6 @@ module RomanNumerals where
   data RomanNumber = RomanNumber String Int
 
   convert :: Int -> Numeral
-  convert n = case n of
-    1 -> "I"
-    2 -> "II"
+  convert n
+    | n >= 1 = "I" ++ convert (n-1)
+    | otherwise = ""
