@@ -4,12 +4,19 @@ module RomanNumerals where
   type Numeral = String
   type MixedNumber = (String, Int)
 
+  data RomanDigit = RomanDigit String Int
+
+  digits = reverse [
+    RomanDigit "I" 1,
+    RomanDigit "V" 5
+    ]
+
   convert :: Int -> Numeral
   convert n = concat $ unfoldr nextRomanNumber n
 
   nextRomanNumber :: Int -> Maybe MixedNumber
-  nextRomanNumber n
-    | n >= 5 = Just ("V", n - 5)
-    | n >= 1 = Just ("I", n - 1)
-    | otherwise = Nothing
+  nextRomanNumber n = fmap next $ find isUsableDigit digits
+    where
+      isUsableDigit (RomanDigit _ number) = number <= n
+      next (RomanDigit numeral number) = (numeral, n - number)
 
