@@ -7,8 +7,9 @@ module RomanNumerals where
   data RomanDigit = RomanDigit String Int
 
   digits = reverse [
-    RomanDigit "I" 1,
-    RomanDigit "V" 5
+      RomanDigit "I" 1,
+      RomanDigit "IV" 4,
+      RomanDigit "V" 5
     ]
 
   convert :: Int -> Numeral
