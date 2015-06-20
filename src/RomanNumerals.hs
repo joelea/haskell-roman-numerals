@@ -9,7 +9,13 @@ module RomanNumerals where
   digits = reverse [
       RomanDigit "I" 1,
       RomanDigit "IV" 4,
-      RomanDigit "V" 5
+      RomanDigit "V" 5,
+      RomanDigit "IX" 9,
+      RomanDigit "X" 10,
+      RomanDigit "XL" 40,
+      RomanDigit "L" 50,
+      RomanDigit "XM" 90,
+      RomanDigit "M" 100
     ]
 
   convert :: Int -> Numeral
